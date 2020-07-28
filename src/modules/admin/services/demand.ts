@@ -37,13 +37,12 @@ export class DemandService {
     return products;
   }
 
-  private async create(model: IDemand): Promise<Demand> {
-    const demand = await this.demandRepository.insert(model);
-    return demand;
-  }
-
   public async findByProducts(idDemand: number): Promise<Array<IProduct>> {
     const products = await this.productRepository.findByProducts(idDemand);
     return products;
+  }
+  private async create(model: IDemand): Promise<Demand> {
+    const demand = await this.demandRepository.insert(model);
+    return demand;
   }
 }
